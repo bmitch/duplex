@@ -27,5 +27,13 @@ class DuplexTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals(75, $match);
 	}
 
+	/** @test */
+	public function it_detects_an_50_percent_match()
+	{
+		$phrase01 = 'one two three four';
+		$phrase02 = 'one two five six';
+		$match = Duplex::make()->matchPercent($phrase01, $phrase02);
+		$this->assertEquals(50, $match);
+	}
 
 }
